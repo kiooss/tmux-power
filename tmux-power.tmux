@@ -126,11 +126,13 @@ fi
 if "$show_web_reachable"; then
     RS=" #{web_reachable_status} $RS"
 fi
+
+RS="#[fg=$G05,bg=$BG]$left_arrow_icon#[fg=$TC,bg=$G05] #{ram_fg_color}  #{ram_icon} #{ram_percentage} #[fg=$G06,bg=$G05]$left_arrow_icon$RS"
+
 if [[ $prefix_highlight_pos == 'R' || $prefix_highlight_pos == 'LR' ]]; then
     RS="#{prefix_highlight}$RS"
 fi
 
-RS="#[fg=$G05,bg=$BG]$left_arrow_icon#[fg=$TC,bg=$G05] $download_speed_icon #{ram_fg_color} \uf85a#{ram_icon} #{ram_percentage} #[fg=$G06,bg=$G05]$left_arrow_icon$RS"
 tmux_set status-right "$RS"
 
 # Window status
